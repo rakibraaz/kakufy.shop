@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veloraa Medical Tourism | China</title>
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-blue: #0088cc;
+            --dark-blue: #003366;
+            --light-bg: #f4f8fb;
+            --text-color: #333333;
+            --accent-red: #e63946;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Hind Siliguri', sans-serif;
+        }
+
+        body {
+            background-color: var(--light-bg);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            background-color: #ffffff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .navbar {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+
+        .logo-text {
+            font-size: 26px;
+            font-weight: 700;
+            color: var(--dark-blue);
+        }
+
+        .logo-text span {
+            color: var(--accent-red);
+        }
+
+        .btn-whatsapp {
+            background-color: #25d366;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #e0f2fe 0%, #ffffff 100%);
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .hero-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 36px;
+            color: var(--dark-blue);
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: #555;
+            margin-bottom: 30px;
+        }
+
+        /* Services Grid */
+        .services {
+            max-width: 1100px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 28px;
+            color: var(--dark-blue);
+            margin-bottom: 30px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-top: 4px solid var(--primary-blue);
+            transition: transform 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card h3 {
+            font-size: 20px;
+            color: var(--dark-blue);
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            color: #666;
+            font-size: 15px;
+        }
+
+        /* Hospital Section */
+        .hospital-info {
+            background-color: white;
+            padding: 50px 20px;
+            text-align: center;
+            border-top: 1px solid #e5e7eb;
+        }
+
+        .hospital-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-blue);
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+
+        footer p {
+            font-size: 14px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 26px;
+            }
+            .hero p {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header>
+        <div class="navbar">
+            <div class="logo-text">VELORAA <span>HEALTH</span></div>
+            <a href="https://wa.me/8613734298628" class="btn-whatsapp" target="_blank">
+                WhatsApp এ যোগাযোগ করুন
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <h1>চীনে চিকিৎসার নতুন দিগন্তে বিশ্বস্ত সঙ্গী</h1>
+            <p>চায়নার শিয়ানে সরকারি হাসপাতালে ইউরোপীয় মানের চিকিৎসা, বিশেষজ্ঞ ডাক্তারের অ্যাপয়েন্টমেন্ট, বাংলা দোভাষী সহায়তা এবং ঝামেলাহীন ভিসা প্রসেসিং।</p>
+            <a href="https://wa.me/8613734298628" class="btn-whatsapp" style="font-size: 18px; padding: 12px 25px;">
+                ফ্রি পরামর্শের জন্য কল করুন
+            </a>
+        </div>
+    </section>
+
+    <!-- Our Services -->
+    <section class="services">
+        <h2 class="section-title">আমাদের সেবাসমূহ</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>বিশেষজ্ঞ ডাক্তারের অ্যাপয়েন্টমেন্ট</h3>
+                <p>চীনের শীর্ষস্থানীয় সরকারি হাসপাতালের বিশেষজ্ঞ চিকিৎসকদের সাথে সরাসরি সিরিয়াল ও অ্যাপয়েন্টমেন্টের সুবিধা।</p>
+            </div>
+            <div class="card">
+                <h3>চায়না-বাংলা দোভাষী সেবা</h3>
+                <p>ভাষা সংক্রান্ত যেকোনো সমস্যা সমাধানে সার্বক্ষণিক অভিজ্ঞ বাংলা অনুবাদক ও গাইড সুবিধা।</p>
+            </div>
+            <div class="card">
+                <h3>ইউরোপীয় মানের চিকিৎসা</h3>
+                <p>আধুনিক চিকিৎসা সরঞ্জাম ও প্রযুক্তির সাহায্যে সাশ্রয়ী খরচে আন্তর্জাতিক মানের হেলথ কেয়ার।</p>
+            </div>
+            <div class="card">
+                <h3>ভিসা ও অন্যান্য সহায়তা</h3>
+                <p>মেডিকেল ইনভিটেশন লেটার, মেডিকেল ভিসা প্রসেসিং এবং থাকা-খাওয়ার সুব্যবস্থা।</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hospital Information -->
+    <section class="hospital-info">
+        <div class="hospital-container">
+            <h2 class="section-title">শিয়ান জিয়াওটং ইউনিভার্সিটি ফার্স্ট অ্যাফিলিয়েটেড হাসপাতাল (交大一附院)</h2>
+            <p>আমরা আপনাকে শিয়ান শহরের অন্যতম সেরা ও বিশ্বখ্যাত সরকারি হাসপাতালে নির্ভরযোগ্য চিকিৎসাসেবা পেতে সহায়তা করি।</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Veloraa Medical Tourism | All Rights Reserved | veloraa.health</p>
+    </footer>
+
+</body>
+</html>
