@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Kakufy - Fashion, Curated For You | Multi-Vendor Marketplace</title>
   <!-- Google Fonts & FontAwesome -->
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   
   <style>
@@ -13,12 +13,13 @@
       --kakufy-orange: #ff5722;
       --kakufy-pink: #e91e63;
       --kakufy-purple: #9c27b0;
-      --kakufy-deep-blue: #1e1b4b;
+      --kakufy-deep-blue: #0f172a;
       --kakufy-gradient: linear-gradient(135deg, #ff5722 0%, #e91e63 50%, #8e24aa 100%);
       --kakufy-gradient-text: linear-gradient(135deg, #ff7043, #ec407a, #ab47bc);
       --bg-light: #f8fafc;
       --text-main: #0f172a;
       --text-muted: #64748b;
+      --border-color: #e2e8f0;
     }
 
     * {
@@ -34,152 +35,175 @@
       overflow-x: hidden;
     }
 
-    /* Top Announcement Bar */
-    .announcement-bar {
-      background: var(--kakufy-gradient);
-      color: white;
-      text-align: center;
-      padding: 9px 15px;
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: 0.5px;
+    /* Top Utility Bar */
+    .utility-bar {
+      background: #090d16;
+      color: #94a3b8;
+      font-size: 12px;
+      padding: 8px 24px;
+      border-bottom: 1px solid #1e293b;
     }
 
-    /* Main Header */
-    header {
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(10px);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.04);
-      border-bottom: 1px solid #f1f5f9;
-    }
-
-    .nav-container {
+    .utility-container {
       max-width: 1280px;
       margin: 0 auto;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 16px 24px;
     }
 
-    .brand-logo {
+    .utility-links a {
+      color: #94a3b8;
+      text-decoration: none;
+      margin-left: 15px;
+      transition: color 0.2s;
+    }
+
+    .utility-links a:hover { color: white; }
+
+    /* Announcement Bar */
+    .announcement-bar {
+      background: var(--kakufy-gradient);
+      color: white;
+      text-align: center;
+      padding: 8px 15px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+
+    /* Main Navigation Header */
+    header {
+      background: #ffffff;
+      border-bottom: 1px solid var(--border-color);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+    }
+
+    .main-header-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 24px;
+      gap: 20px;
+    }
+
+    .brand-logo img {
+      height: 52px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .header-support {
       display: flex;
       align-items: center;
       gap: 12px;
-      text-decoration: none;
     }
 
-    .logo-img {
-      height: 48px;
-      border-radius: 12px;
-      object-fit: contain;
-      box-shadow: 0 4px 12px rgba(233, 30, 99, 0.2);
-      transition: transform 0.3s;
-    }
-
-    .brand-logo:hover .logo-img {
-      transform: scale(1.05);
-    }
-
-    .logo-icon-3d {
-      width: 48px;
-      height: 48px;
-      background: var(--kakufy-gradient);
-      border-radius: 14px;
+    .support-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: #f1f5f9;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: white;
-      font-size: 26px;
-      font-weight: 800;
+      font-size: 20px;
+      color: var(--kakufy-pink);
     }
 
-    .logo-text-group {
+    .support-text {
       display: flex;
       flex-direction: column;
     }
 
-    .logo-main-text {
-      font-size: 28px;
+    .support-number {
       font-weight: 800;
-      background: var(--kakufy-gradient-text);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      line-height: 1.1;
-      letter-spacing: -0.5px;
+      font-size: 15px;
+      color: var(--text-main);
     }
 
-    .logo-sub-text {
-      font-size: 10px;
-      font-weight: 700;
-      color: #e91e63;
-      text-transform: uppercase;
-      letter-spacing: 1px;
+    .support-label {
+      font-size: 11px;
+      color: var(--text-muted);
+      font-weight: 600;
     }
 
-    /* Search Engine */
-    .search-box {
-      display: flex;
+    /* Search Box in Header */
+    .header-search {
       flex: 1;
-      max-width: 480px;
-      margin: 0 32px;
+      max-width: 420px;
       position: relative;
     }
 
-    .search-box input {
+    .header-search input {
       width: 100%;
-      padding: 12px 20px 12px 45px;
-      border: 2px solid #e2e8f0;
-      border-radius: 30px;
-      font-size: 14px;
+      padding: 11px 45px 11px 20px;
+      border: 1px solid var(--border-color);
+      border-radius: 25px;
+      background: #f8fafc;
+      font-size: 13px;
       outline: none;
       transition: all 0.3s;
     }
 
-    .search-box input:focus {
-      border-color: #e91e63;
-      box-shadow: 0 0 0 4px rgba(233, 30, 99, 0.1);
+    .header-search input:focus {
+      border-color: var(--kakufy-pink);
+      background: #fff;
+      box-shadow: 0 0 0 3px rgba(233, 30, 99, 0.1);
     }
 
-    .search-box i {
+    .header-search button {
       position: absolute;
-      left: 18px;
+      right: 15px;
       top: 50%;
       transform: translateY(-50%);
+      background: none;
+      border: none;
       color: var(--text-muted);
+      cursor: pointer;
+      font-size: 15px;
     }
 
-    /* Header Controls */
-    .header-actions {
+    /* Right Widget Controls */
+    .header-widgets {
       display: flex;
       align-items: center;
       gap: 20px;
     }
 
-    .action-btn {
-      background: none;
+    .widget-btn {
+      position: relative;
+      background: #f1f5f9;
       border: none;
-      font-size: 20px;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
       color: var(--text-main);
       cursor: pointer;
-      position: relative;
-      transition: color 0.2s;
+      transition: all 0.3s;
     }
 
-    .action-btn:hover {
-      color: var(--kakufy-pink);
+    .widget-btn:hover {
+      background: var(--kakufy-pink);
+      color: white;
     }
 
-    .badge-count {
+    .widget-badge {
       position: absolute;
-      top: -8px;
-      right: -10px;
+      top: -4px;
+      right: -4px;
       background: var(--kakufy-orange);
       color: white;
-      font-size: 11px;
+      font-size: 10px;
       font-weight: 800;
       width: 18px;
       height: 18px;
@@ -189,194 +213,120 @@
       justify-content: center;
     }
 
-    .become-vendor-btn {
-      background: var(--kakufy-gradient);
-      color: white;
-      padding: 10px 20px;
-      border-radius: 25px;
-      text-decoration: none;
+    .cart-price-info {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .cart-price-label {
+      font-size: 10px;
       font-weight: 700;
-      font-size: 13px;
-      box-shadow: 0 4px 15px rgba(233, 30, 99, 0.3);
-      transition: all 0.3s;
+      color: var(--text-muted);
+      text-transform: uppercase;
     }
 
-    .become-vendor-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(233, 30, 99, 0.4);
+    .cart-price-amount {
+      font-size: 15px;
+      font-weight: 800;
+      color: var(--kakufy-deep-blue);
     }
 
-    /* Hero Section */
-    .hero-section {
-      background: linear-gradient(135deg, #0f172a 0%, #2e1065 100%);
+    /* Mega Navigation Bar */
+    .mega-navbar {
+      background: #0f172a;
       color: white;
-      padding: 90px 24px;
-      position: relative;
-      overflow: hidden;
     }
 
-    .hero-container {
+    .mega-nav-container {
       max-width: 1280px;
       margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 50px;
-      align-items: center;
-    }
-
-    .hero-title {
-      font-size: 54px;
-      font-weight: 800;
-      line-height: 1.15;
-      margin-bottom: 20px;
-    }
-
-    .hero-title span {
-      background: var(--kakufy-gradient-text);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    .hero-description {
-      font-size: 18px;
-      color: #94a3b8;
-      margin-bottom: 35px;
-      line-height: 1.6;
-    }
-
-    .hero-cta {
       display: flex;
-      gap: 16px;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 24px;
     }
 
-    .cta-btn-primary {
+    .category-dropdown-btn {
       background: var(--kakufy-gradient);
       color: white;
-      padding: 16px 36px;
-      border-radius: 30px;
+      padding: 15px 25px;
+      font-weight: 800;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
       text-decoration: none;
-      font-weight: 700;
-      font-size: 16px;
-      box-shadow: 0 8px 25px rgba(233, 30, 99, 0.4);
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
     }
 
-    .cta-btn-secondary {
-      background: rgba(255,255,255,0.1);
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: #cbd5e1;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover, .nav-links a.active {
+      color: #ffffff;
+    }
+
+    .nav-right-actions {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .best-offer-link {
+      color: #ff7043 !important;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .login-btn {
       color: white;
-      padding: 16px 36px;
-      border-radius: 30px;
       text-decoration: none;
+      font-size: 13px;
       font-weight: 700;
-      font-size: 16px;
-      backdrop-filter: blur(5px);
-      border: 1px solid rgba(255,255,255,0.2);
+      display: flex;
+      align-items: center;
+      gap: 6px;
     }
 
-    .hero-image-card {
-      position: relative;
-      border-radius: 24px;
-      overflow: hidden;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-      border: 2px solid rgba(255,255,255,0.1);
+    /* Hero Section Banner */
+    .hero-banner-cover {
+      max-width: 1280px;
+      margin: 20px auto;
+      padding: 0 24px;
     }
 
-    .hero-image-card img {
+    .hero-banner-cover img {
       width: 100%;
-      height: 400px;
+      height: auto;
+      max-height: 480px;
       object-fit: cover;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
       display: block;
     }
 
-    /* Flash Sale Section */
-    .flash-sale-box {
-      background: var(--kakufy-gradient);
-      border-radius: 24px;
-      padding: 40px;
-      color: white;
-      margin-bottom: 60px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 20px;
-      box-shadow: 0 10px 30px rgba(233, 30, 99, 0.3);
-    }
-
-    .timer-box {
-      display: flex;
-      gap: 12px;
-      margin-top: 15px;
-    }
-
-    .timer-unit {
-      background: rgba(255, 255, 255, 0.2);
-      backdrop-filter: blur(8px);
-      padding: 10px 16px;
-      border-radius: 12px;
-      text-align: center;
-      min-width: 60px;
-    }
-
-    .timer-num {
-      font-size: 22px;
-      font-weight: 800;
-    }
-
-    .timer-lbl {
-      font-size: 10px;
-      text-transform: uppercase;
-      font-weight: 700;
-    }
-
-    /* Visual Category Showcase Grid */
-    .cat-showcase-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-      margin-bottom: 60px;
-    }
-
-    .cat-card {
-      position: relative;
-      height: 200px;
-      border-radius: 20px;
-      overflow: hidden;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-      cursor: pointer;
-    }
-
-    .cat-card img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.4s;
-    }
-
-    .cat-card:hover img {
-      transform: scale(1.1);
-    }
-
-    .cat-card-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to top, rgba(15,23,42,0.85), transparent);
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      padding: 20px;
-      color: white;
-    }
-
-    .cat-card-overlay h3 {
-      font-size: 20px;
-      font-weight: 800;
-    }
-
-    /* Multi-Vendor Highlights */
+    /* Value Strip */
     .vendor-strip {
       background: white;
-      padding: 24px 0;
-      border-bottom: 1px solid #e2e8f0;
+      padding: 20px 0;
+      border-bottom: 1px solid var(--border-color);
+      margin-top: 30px;
     }
 
     .vendor-strip-container {
@@ -395,19 +345,19 @@
       align-items: center;
       gap: 12px;
       font-weight: 700;
-      font-size: 14px;
+      font-size: 13px;
       color: var(--text-main);
     }
 
     .strip-item i {
-      font-size: 24px;
+      font-size: 20px;
       color: var(--kakufy-pink);
     }
 
-    /* Category Navigation */
+    /* Container for Main Sections */
     .section-container {
       max-width: 1280px;
-      margin: 60px auto;
+      margin: 50px auto;
       padding: 0 24px;
     }
 
@@ -416,28 +366,114 @@
       justify-content: space-between;
       align-items: flex-end;
       margin-bottom: 30px;
+      flex-wrap: wrap;
+      gap: 20px;
     }
 
     .section-heading {
-      font-size: 32px;
+      font-size: 28px;
       font-weight: 800;
       letter-spacing: -0.5px;
     }
 
+    /* Visual Category Grid */
+    .cat-showcase-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+      margin-bottom: 50px;
+    }
+
+    .cat-card {
+      position: relative;
+      height: 200px;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+      cursor: pointer;
+    }
+
+    .cat-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s;
+    }
+
+    .cat-card:hover img { transform: scale(1.08); }
+
+    .cat-card-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(15,23,42,0.85), transparent);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 20px;
+      color: white;
+    }
+
+    /* Flash Sale Banner */
+    .flash-sale-box {
+      background: var(--kakufy-gradient);
+      border-radius: 24px;
+      padding: 35px 40px;
+      color: white;
+      margin-bottom: 50px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      box-shadow: 0 10px 30px rgba(233, 30, 99, 0.25);
+    }
+
+    .timer-box { display: flex; gap: 12px; }
+
+    .timer-unit {
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(8px);
+      padding: 10px 16px;
+      border-radius: 12px;
+      text-align: center;
+      min-width: 60px;
+    }
+
+    .timer-num { font-size: 20px; font-weight: 800; }
+    .timer-lbl { font-size: 10px; text-transform: uppercase; font-weight: 700; }
+
+    /* Product Sorting and Filter Controls */
+    .controls-wrapper {
+      display: flex;
+      gap: 15px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .sort-select {
+      padding: 10px 16px;
+      border-radius: 20px;
+      border: 1px solid var(--border-color);
+      font-weight: 700;
+      font-size: 13px;
+      outline: none;
+      background: white;
+      cursor: pointer;
+    }
+
     .category-tabs {
       display: flex;
-      gap: 12px;
+      gap: 10px;
       overflow-x: auto;
-      padding-bottom: 8px;
     }
 
     .tab-btn {
-      padding: 10px 22px;
+      padding: 10px 20px;
       border-radius: 20px;
       background: white;
-      border: 1px solid #e2e8f0;
+      border: 1px solid var(--border-color);
       font-weight: 700;
-      font-size: 14px;
+      font-size: 13px;
       cursor: pointer;
       transition: all 0.2s;
       white-space: nowrap;
@@ -450,10 +486,10 @@
       box-shadow: 0 4px 12px rgba(233, 30, 99, 0.25);
     }
 
-    /* Product Cards Grid */
+    /* Product Grid */
     .product-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
       gap: 28px;
     }
 
@@ -476,7 +512,7 @@
 
     .card-thumb {
       position: relative;
-      height: 250px;
+      height: 240px;
       overflow: hidden;
       background: #f8fafc;
     }
@@ -488,15 +524,26 @@
       transition: transform 0.5s;
     }
 
-    .product-card:hover .card-thumb img {
-      transform: scale(1.08);
+    .product-card:hover .card-thumb img { transform: scale(1.08); }
+
+    .discount-badge {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: var(--kakufy-orange);
+      color: white;
+      padding: 4px 10px;
+      border-radius: 12px;
+      font-size: 11px;
+      font-weight: 800;
+      z-index: 2;
     }
 
     .vendor-tag {
       position: absolute;
-      top: 14px;
-      left: 14px;
-      background: rgba(15, 23, 42, 0.8);
+      top: 12px;
+      left: 12px;
+      background: rgba(15, 23, 42, 0.85);
       backdrop-filter: blur(6px);
       color: white;
       padding: 5px 12px;
@@ -506,14 +553,13 @@
       display: flex;
       align-items: center;
       gap: 5px;
+      z-index: 2;
     }
 
-    .vendor-tag i {
-      color: #38bdf8;
-    }
+    .vendor-tag i { color: #38bdf8; }
 
     .card-details {
-      padding: 20px;
+      padding: 18px;
       display: flex;
       flex-direction: column;
       flex: 1;
@@ -529,11 +575,20 @@
     }
 
     .product-name {
-      font-size: 16px;
+      font-size: 15px;
       font-weight: 700;
       color: var(--text-main);
-      margin-bottom: 12px;
+      margin-bottom: 8px;
       line-height: 1.4;
+    }
+
+    .rating-row {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 12px;
+      color: #f59e0b;
+      margin-bottom: 12px;
     }
 
     .card-footer {
@@ -543,180 +598,214 @@
       align-items: center;
     }
 
+    .price-group { display: flex; flex-direction: column; }
+
     .product-price {
-      font-size: 20px;
+      font-size: 18px;
       font-weight: 800;
       color: var(--kakufy-deep-blue);
     }
 
-    .add-cart-btn {
+    .old-price {
+      font-size: 11px;
+      color: var(--text-muted);
+      text-decoration: line-through;
+    }
+
+    .card-btns { display: flex; gap: 8px; }
+
+    .add-cart-btn, .quick-view-btn {
       background: #f1f5f9;
       color: var(--text-main);
       border: none;
-      width: 42px;
-      height: 42px;
+      width: 38px;
+      height: 38px;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
-      font-size: 16px;
+      font-size: 14px;
       transition: all 0.3s;
     }
 
     .add-cart-btn:hover {
       background: var(--kakufy-gradient);
       color: white;
-      box-shadow: 0 4px 12px rgba(233, 30, 99, 0.3);
     }
 
-    /* Top Sellers Spotlight Grid */
+    .quick-view-btn:hover {
+      background: #0f172a;
+      color: white;
+    }
+
+    /* Top Sellers Spotlight */
     .seller-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 25px;
-      margin-top: 30px;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+      margin-top: 25px;
     }
 
     .seller-card {
       background: white;
-      border-radius: 20px;
-      padding: 24px;
-      border: 1px solid #e2e8f0;
+      border-radius: 18px;
+      padding: 20px;
+      border: 1px solid var(--border-color);
       display: flex;
       align-items: center;
-      gap: 16px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+      gap: 15px;
     }
 
     .seller-avatar {
-      width: 60px;
-      height: 60px;
+      width: 55px;
+      height: 55px;
       border-radius: 50%;
       object-fit: cover;
       border: 2px solid var(--kakufy-pink);
     }
 
-    /* Testimonials Grid */
+    /* Customer Reviews */
     .testimonial-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 25px;
-      margin-top: 30px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      margin-top: 25px;
     }
 
     .review-card {
       background: white;
-      border-radius: 20px;
-      padding: 24px;
+      border-radius: 18px;
+      padding: 22px;
       border: 1px solid #f1f5f9;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.02);
     }
 
-    .stars {
-      color: #f59e0b;
-      margin-bottom: 12px;
+    /* Newsletter Box */
+    .newsletter-section {
+      background: #0f172a;
+      border-radius: 24px;
+      padding: 50px 30px;
+      color: white;
+      text-align: center;
+      margin-top: 70px;
     }
 
-    /* Floating WhatsApp Button */
+    .newsletter-input-box {
+      display: flex;
+      max-width: 480px;
+      margin: 20px auto 0;
+      gap: 10px;
+    }
+
+    .newsletter-input-box input {
+      flex: 1;
+      padding: 13px 20px;
+      border-radius: 30px;
+      border: none;
+      outline: none;
+      font-size: 13px;
+    }
+
+    .newsletter-input-box button {
+      background: var(--kakufy-gradient);
+      color: white;
+      border: none;
+      padding: 13px 25px;
+      border-radius: 30px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    /* Quick View Modal */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.7);
+      backdrop-filter: blur(6px);
+      z-index: 3000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .modal-overlay.active { display: flex; }
+
+    .modal-card {
+      background: white;
+      border-radius: 24px;
+      max-width: 650px;
+      width: 100%;
+      padding: 25px;
+      position: relative;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 25px;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      background: none;
+      border: none;
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    /* Floating WhatsApp */
     .whatsapp-float {
       position: fixed;
       bottom: 30px;
       right: 30px;
       background: #25d366;
       color: white;
-      width: 60px;
-      height: 60px;
+      width: 55px;
+      height: 55px;
       border-radius: 50%;
       text-align: center;
-      font-size: 32px;
+      font-size: 30px;
       box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
-      z-index: 9999;
+      z-index: 2500;
       display: flex;
       align-items: center;
       justify-content: center;
       text-decoration: none;
-      transition: transform 0.3s ease, background 0.3s ease;
     }
 
-    .whatsapp-float:hover {
-      transform: scale(1.1);
-      background: #20ba5a;
-      color: white;
-    }
-
-    /* Cart Offcanvas Drawer */
+    /* Cart Offcanvas */
     .cart-drawer {
       position: fixed;
       top: 0;
-      right: -400px;
-      width: 380px;
+      right: -380px;
+      width: 360px;
       height: 100%;
       background: white;
       box-shadow: -10px 0 30px rgba(0,0,0,0.15);
-      z-index: 2000;
+      z-index: 2800;
       transition: right 0.3s ease;
       display: flex;
       flex-direction: column;
     }
 
-    .cart-drawer.open {
-      right: 0;
-    }
+    .cart-drawer.open { right: 0; }
 
     .cart-header {
       padding: 20px;
       background: var(--bg-light);
-      border-bottom: 1px solid #e2e8f0;
+      border-bottom: 1px solid var(--border-color);
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
 
-    .cart-items-list {
-      padding: 20px;
-      flex: 1;
-      overflow-y: auto;
-    }
-
-    .cart-item {
-      display: flex;
-      gap: 14px;
-      margin-bottom: 16px;
-      border-bottom: 1px solid #f1f5f9;
-      padding-bottom: 16px;
-    }
-
-    .cart-item img {
-      width: 60px;
-      height: 60px;
-      border-radius: 10px;
-      object-fit: cover;
-    }
-
-    .cart-footer {
-      padding: 20px;
-      border-top: 1px solid #e2e8f0;
-      background: var(--bg-light);
-    }
-
-    .checkout-btn {
-      width: 100%;
-      background: var(--kakufy-gradient);
-      color: white;
-      border: none;
-      padding: 14px;
-      border-radius: 12px;
-      font-weight: 800;
-      cursor: pointer;
-    }
-
     /* Footer */
     footer {
-      background: #0f172a;
+      background: #090d16;
       color: #94a3b8;
       padding: 60px 24px 30px;
-      margin-top: 100px;
+      margin-top: 80px;
     }
 
     .footer-container {
@@ -725,104 +814,128 @@
       display: grid;
       grid-template-columns: 2fr 1fr 1fr 1fr;
       gap: 40px;
-      margin-bottom: 40px;
+      margin-bottom: 30px;
     }
 
-    .footer-title {
-      color: white;
-      font-size: 16px;
-      font-weight: 700;
-      margin-bottom: 16px;
-    }
+    .footer-title { color: white; font-size: 15px; font-weight: 700; margin-bottom: 15px; }
 
-    .footer-links {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
 
-    .footer-links a {
-      color: #94a3b8;
-      text-decoration: none;
-      font-size: 14px;
-      transition: color 0.2s;
-    }
+    .footer-links a { color: #94a3b8; text-decoration: none; font-size: 13px; }
 
-    .footer-links a:hover {
-      color: white;
-    }
+    .footer-links a:hover { color: white; }
 
     .footer-bottom {
       max-width: 1280px;
       margin: 0 auto;
-      padding-top: 30px;
+      padding-top: 25px;
       border-top: 1px solid #1e293b;
-      text-align: center;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 15px;
       font-size: 13px;
     }
 
-    @media (max-width: 768px) {
-      .hero-container { grid-template-columns: 1fr; text-align: center; }
-      .hero-title { font-size: 38px; }
-      .hero-cta { justify-content: center; }
+    @media (max-width: 900px) {
+      .header-support, .cart-price-info { display: none; }
       .footer-container { grid-template-columns: 1fr; }
-      .search-box { display: none; }
+      .modal-card { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Top Announcement Bar -->
+  <!-- Top Utility Bar -->
+  <div class="utility-bar">
+    <div class="utility-container">
+      <div><i class="fa-solid fa-headset"></i> Support: +86 151 4001 2194 | 24/7 Global Shipping</div>
+      <div class="utility-links">
+        <a href="#">Order Tracking</a>
+        <a href="#become-vendor">Sell on Kakufy</a>
+        <a href="#">USD $</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Announcement Bar -->
   <div class="announcement-bar">
     ⚡ KAKUFY MULTI-VENDOR MARKETPLACE — SHOP FASHION, SHOES & COSMETICS FROM VERIFIED SELLERS!
   </div>
 
-  <!-- Header Navigation -->
+  <!-- Main Navigation Header -->
   <header>
-    <div class="nav-container">
+    <div class="main-header-container">
+      
       <a href="#" class="brand-logo">
-        <img src="logo.png" alt="Kakufy Logo" class="logo-img" onerror="this.style.display='none'; document.getElementById('altLogo').style.display='flex';">
-        <div class="logo-icon-3d" id="altLogo" style="display:none;">K</div>
-        <div class="logo-text-group">
-          <span class="logo-main-text">Kakufy</span>
-          <span class="logo-sub-text">Fashion, Curated For You</span>
-        </div>
+        <img src="logo.png" alt="Kakufy Logo">
       </a>
 
-      <div class="search-box">
-        <i class="fa-solid fa-magnifying-glass"></i>
-        <input type="text" id="searchInput" placeholder="Search fashion, cosmetics, shoes, vendors..." onkeyup="filterProducts()">
+      <div class="header-support">
+        <div class="support-icon"><i class="fa-solid fa-headset"></i></div>
+        <div class="support-text">
+          <span class="support-number">+86 151 4001 2194</span>
+          <span class="support-label">Free Call Support</span>
+        </div>
       </div>
 
-      <div class="header-actions">
-        <a href="#become-vendor" class="become-vendor-btn"><i class="fa-solid fa-store"></i> Become a Seller</a>
-        <button class="action-btn" onclick="toggleCart()">
-          <i class="fa-solid fa-bag-shopping"></i>
-          <span class="badge-count" id="cartBadge">0</span>
+      <div class="header-search">
+        <input type="text" id="searchInput" placeholder="Search Your Products..." onkeyup="filterProducts()">
+        <button><i class="fa-solid fa-magnifying-glass"></i></button>
+      </div>
+
+      <div class="header-widgets">
+        <button class="widget-btn">
+          <i class="fa-regular fa-bell"></i>
+          <span class="widget-badge">2</span>
         </button>
+
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <button class="widget-btn" onclick="toggleCart()">
+            <i class="fa-solid fa-bag-shopping"></i>
+            <span class="widget-badge" id="cartBadge">0</span>
+          </button>
+          <div class="cart-price-info">
+            <span class="cart-price-label">TOTAL PRICE</span>
+            <span class="cart-price-amount" id="headerCartTotal">$0.00</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Mega Navigation Bar -->
+    <div class="mega-navbar">
+      <div class="mega-nav-container">
+        
+        <a href="#products-section" class="category-dropdown-btn">
+          <i class="fa-solid fa-grip-vertical"></i> ALL CATEGORIES
+        </a>
+
+        <ul class="nav-links">
+          <li><a href="#" class="active">HOME <i class="fa-solid fa-angle-down" style="font-size: 10px;"></i></a></li>
+          <li><a href="#products-section">SHOP</a></li>
+          <li><a href="#products-section" onclick="filterCategory('Footwear')"><i class="fa-solid fa-shoe-prints"></i> FOOTWEAR</a></li>
+          <li><a href="#products-section" onclick="filterCategory('Cosmetics')"><i class="fa-solid fa-wand-magic-sparkles"></i> COSMETICS</a></li>
+          <li><a href="#products-section" onclick="filterCategory('Apparel')"><i class="fa-solid fa-shirt"></i> APPAREL</a></li>
+        </ul>
+
+        <div class="nav-right-actions">
+          <a href="#products-section" class="nav-links best-offer-link"><i class="fa-solid fa-tag"></i> BEST OFFER</a>
+          <a href="#become-vendor" class="login-btn"><i class="fa-regular fa-user"></i> Login/Register</a>
+        </div>
+
       </div>
     </div>
   </header>
 
-  <!-- Hero Banner -->
-  <section class="hero-section">
-    <div class="hero-container">
-      <div>
-        <h1 class="hero-title">Discover Top Brands & <span>Multi-Vendor</span> Collections</h1>
-        <p class="hero-description">Explore curated footwear, luxury cosmetics, vibrant apparel, and accessories all in one destination.</p>
-        <div class="hero-cta">
-          <a href="#products-section" class="cta-btn-primary">Explore Products</a>
-          <a href="#become-vendor" class="cta-btn-secondary">Open Your Shop</a>
-        </div>
-      </div>
-      <div class="hero-image-card">
-        <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?w=800" alt="Kakufy Shopping Experience">
-      </div>
-    </div>
-  </section>
+  <!-- Cover Hero Image Banner -->
+  <div class="hero-banner-cover">
+    <img src="cover.png" alt="Kakufy Marketplace Banner">
+  </div>
 
-  <!-- Value Proposition Strip -->
+  <!-- Value Strip -->
   <div class="vendor-strip">
     <div class="vendor-strip-container">
       <div class="strip-item"><i class="fa-solid fa-truck-fast"></i> Express Worldwide Delivery</div>
@@ -834,41 +947,33 @@
 
   <div class="section-container">
     
-    <!-- Visual Category Cards Grid -->
-    <h2 class="section-heading" style="margin-bottom: 20px;">Shop By Category</h2>
+    <!-- Category Showcase -->
+    <h2 class="section-heading">Shop By Category</h2>
     <div class="cat-showcase-grid">
-      <div class="cat-card" onclick="filterCategory('Footwear', document.querySelectorAll('.tab-btn')[1])">
+      <div class="cat-card" onclick="filterCategory('Footwear')">
         <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?w=500" alt="Footwear">
-        <div class="cat-card-overlay">
-          <h3>Footwear & Shoes</h3>
-        </div>
+        <div class="cat-card-overlay"><h3>Footwear & Shoes</h3></div>
       </div>
-      <div class="cat-card" onclick="filterCategory('Cosmetics', document.querySelectorAll('.tab-btn')[2])">
+      <div class="cat-card" onclick="filterCategory('Cosmetics')">
         <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=500" alt="Cosmetics">
-        <div class="cat-card-overlay">
-          <h3>Cosmetics & Skincare</h3>
-        </div>
+        <div class="cat-card-overlay"><h3>Cosmetics & Skincare</h3></div>
       </div>
-      <div class="cat-card" onclick="filterCategory('Apparel', document.querySelectorAll('.tab-btn')[3])">
+      <div class="cat-card" onclick="filterCategory('Apparel')">
         <img src="https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?w=500" alt="Apparel">
-        <div class="cat-card-overlay">
-          <h3>Fashion & Apparel</h3>
-        </div>
+        <div class="cat-card-overlay"><h3>Fashion Apparel</h3></div>
       </div>
-      <div class="cat-card" onclick="filterCategory('Accessories', document.querySelectorAll('.tab-btn')[4])">
+      <div class="cat-card" onclick="filterCategory('Accessories')">
         <img src="https://images.unsplash.com/photo-1523206489230-c012c64b2b48?w=500" alt="Accessories">
-        <div class="cat-card-overlay">
-          <h3>Watches & Accessories</h3>
-        </div>
+        <div class="cat-card-overlay"><h3>Bags & Accessories</h3></div>
       </div>
     </div>
 
-    <!-- Flash Sale Countdown Banner -->
+    <!-- Flash Sale Banner -->
     <div class="flash-sale-box">
       <div>
-        <span style="background: rgba(255,255,255,0.2); padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: 800; text-transform: uppercase;">Limited Time Deal</span>
-        <h2 style="font-size: 32px; font-weight: 800; margin-top: 8px;">Weekly Flash Sale — Up To 50% OFF</h2>
-        <p style="opacity: 0.9;">Grab designer shoes, lipsticks, and apparel before stock runs out!</p>
+        <span style="background: rgba(255,255,255,0.2); padding: 4px 12px; border-radius: 20px; font-size: 11px; font-weight: 800; text-transform: uppercase;">Limited Time Deal</span>
+        <h2 style="font-size: 28px; font-weight: 800; margin-top: 6px;">Weekly Flash Sale — Up To 50% OFF</h2>
+        <p style="opacity: 0.9; font-size: 13px;">Grab designer shoes, lipsticks, and apparel before stock runs out!</p>
       </div>
       <div class="timer-box">
         <div class="timer-unit"><div class="timer-num">08</div><div class="timer-lbl">Hours</div></div>
@@ -877,181 +982,186 @@
       </div>
     </div>
 
-    <!-- Main Marketplace Products -->
+    <!-- Featured Products Section -->
     <div id="products-section">
       <div class="section-header">
         <div>
           <h2 class="section-heading">Featured Products</h2>
-          <p style="color: var(--text-muted); font-size: 14px; margin-top: 4px;">Top picks from our marketplace vendors</p>
+          <p style="color: var(--text-muted); font-size: 13px;">Top picks from our marketplace vendors</p>
         </div>
-        <div class="category-tabs">
-          <button class="tab-btn active" onclick="filterCategory('all', this)">All Items</button>
-          <button class="tab-btn" onclick="filterCategory('Footwear', this)">Footwear</button>
-          <button class="tab-btn" onclick="filterCategory('Cosmetics', this)">Cosmetics</button>
-          <button class="tab-btn" onclick="filterCategory('Apparel', this)">Apparel</button>
-          <button class="tab-btn" onclick="filterCategory('Accessories', this)">Accessories</button>
+        
+        <div class="controls-wrapper">
+          <select class="sort-select" onchange="sortProducts(this.value)">
+            <option value="default">Sort by: Default</option>
+            <option value="low-high">Price: Low to High</option>
+            <option value="high-low">Price: High to Low</option>
+          </select>
+
+          <div class="category-tabs">
+            <button class="tab-btn active" onclick="filterCategory('all', this)">All Items</button>
+            <button class="tab-btn" onclick="filterCategory('Footwear', this)">Footwear</button>
+            <button class="tab-btn" onclick="filterCategory('Cosmetics', this)">Cosmetics</button>
+            <button class="tab-btn" onclick="filterCategory('Apparel', this)">Apparel</button>
+            <button class="tab-btn" onclick="filterCategory('Accessories', this)">Accessories</button>
+          </div>
         </div>
       </div>
 
-      <!-- Expanded Product Grid -->
+      <!-- Extended Product Grid -->
       <div class="product-grid" id="productGrid">
+        
         <!-- Product 1 -->
-        <div class="product-card" data-category="Footwear" data-title="Classic White Gold Air Sneakers">
+        <div class="product-card" data-category="Footwear" data-title="Classic White Gold Air Sneakers" data-price="89.00">
           <div class="card-thumb">
-            <span class="vendor-tag"><i class="fa-solid fa-circle-check"></i> SneakerHub Vendor</span>
+            <span class="discount-badge">-15%</span>
+            <span class="vendor-tag"><i class="fa-solid fa-circle-check"></i> SneakerHub</span>
             <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600" alt="Sneakers">
           </div>
           <div class="card-details">
             <span class="cat-label">Footwear</span>
             <h3 class="product-name">Classic White Gold Air Sneakers</h3>
+            <div class="rating-row"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> (48)</div>
             <div class="card-footer">
-              <span class="product-price">$89.00</span>
-              <button class="add-cart-btn" onclick="addToCart('Classic White Gold Air Sneakers', 89.00, 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600')"><i class="fa-solid fa-plus"></i></button>
+              <div class="price-group"><span class="product-price">$89.00</span><span class="old-price">$105.00</span></div>
+              <div class="card-btns">
+                <button class="quick-view-btn" onclick="openQuickView('Classic White Gold Air Sneakers', '$89.00', 'Footwear', 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600')"><i class="fa-solid fa-eye"></i></button>
+                <button class="add-cart-btn" onclick="addToCart('Classic White Gold Air Sneakers', 89.00, 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600')"><i class="fa-solid fa-plus"></i></button>
+              </div>
             </div>
           </div>
         </div>
 
         <!-- Product 2 -->
-        <div class="product-card" data-category="Cosmetics" data-title="Velvet Matte Lipstick & Glow Serum">
+        <div class="product-card" data-category="Cosmetics" data-title="Velvet Matte Lipstick & Glow Serum" data-price="45.00">
           <div class="card-thumb">
-            <span class="vendor-tag"><i class="fa-solid fa-circle-check"></i> Glamour Beauty Store</span>
+            <span class="discount-badge">-20%</span>
+            <span class="vendor-tag"><i class="fa-solid fa-circle-check"></i> Glamour Beauty</span>
             <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=600" alt="Cosmetics">
           </div>
           <div class="card-details">
             <span class="cat-label">Cosmetics</span>
             <h3 class="product-name">Velvet Matte Lipstick & Glow Serum</h3>
+            <div class="rating-row"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i> (32)</div>
             <div class="card-footer">
-              <span class="product-price">$45.00</span>
-              <button class="add-cart-btn" onclick="addToCart('Velvet Matte Lipstick & Glow Serum', 45.00, 'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=600')"><i class="fa-solid fa-plus"></i></button>
+              <div class="price-group"><span class="product-price">$45.00</span><span class="old-price">$56.00</span></div>
+              <div class="card-btns">
+                <button class="quick-view-btn" onclick="openQuickView('Velvet Matte Lipstick & Glow Serum', '$45.00', 'Cosmetics', 'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=600')"><i class="fa-solid fa-eye"></i></button>
+                <button class="add-cart-btn" onclick="addToCart('Velvet Matte Lipstick & Glow Serum', 45.00, 'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=600')"><i class="fa-solid fa-plus"></i></button>
+              </div>
             </div>
           </div>
         </div>
 
         <!-- Product 3 -->
-        <div class="product-card" data-category="Apparel" data-title="Pastel Cotton Premium T-Shirt Set">
+        <div class="product-card" data-category="Apparel" data-title="Pastel Cotton Premium T-Shirt Set" data-price="35.00">
           <div class="card-thumb">
-            <span class="vendor-tag"><i class="fa-solid fa-circle-check"></i> Urban Outfitters</span>
+            <span class="vendor-tag"><i class="fa-solid fa-circle-check"></i> Urban Style</span>
             <img src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=600" alt="Apparel">
           </div>
           <div class="card-details">
             <span class="cat-label">Apparel</span>
             <h3 class="product-name">Pastel Cotton Premium T-Shirt Set</h3>
+            <div class="rating-row"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> (19)</div>
             <div class="card-footer">
-              <span class="product-price">$35.00</span>
-              <button class="add-cart-btn" onclick="addToCart('Pastel Cotton Premium T-Shirt Set', 35.00, 'https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=600')"><i class="fa-solid fa-plus"></i></button>
+              <div class="price-group"><span class="product-price">$35.00</span></div>
+              <div class="card-btns">
+                <button class="quick-view-btn" onclick="openQuickView('Pastel Cotton Premium T-Shirt Set', '$35.00', 'Apparel', 'https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=600')"><i class="fa-solid fa-eye"></i></button>
+                <button class="add-cart-btn" onclick="addToCart('Pastel Cotton Premium T-Shirt Set', 35.00, 'https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=600')"><i class="fa-solid fa-plus"></i></button>
+              </div>
             </div>
           </div>
         </div>
 
         <!-- Product 4 -->
-        <div class="product-card" data-category="Accessories" data-title="Luxury Leather Tote Handbag">
+        <div class="product-card" data-category="Accessories" data-title="Luxury Leather Tote Handbag" data-price="65.00">
           <div class="card-thumb">
-            <span class="vendor-tag"><i class="fa-solid fa-circle-check"></i> Elite Leather Co</span>
+            <span class="discount-badge">-10%</span>
+            <span class="vendor-tag"><i class="fa-solid fa-circle-check"></i> Elite Leather</span>
             <img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=600" alt="Accessories">
           </div>
           <div class="card-details">
             <span class="cat-label">Accessories</span>
             <h3 class="product-name">Luxury Leather Tote Handbag</h3>
+            <div class="rating-row"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> (64)</div>
             <div class="card-footer">
-              <span class="product-price">$65.00</span>
-              <button class="add-cart-btn" onclick="addToCart('Luxury Leather Tote Handbag', 65.00, 'https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=600')"><i class="fa-solid fa-plus"></i></button>
+              <div class="price-group"><span class="product-price">$65.00</span><span class="old-price">$72.00</span></div>
+              <div class="card-btns">
+                <button class="quick-view-btn" onclick="openQuickView('Luxury Leather Tote Handbag', '$65.00', 'Accessories', 'https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=600')"><i class="fa-solid fa-eye"></i></button>
+                <button class="add-cart-btn" onclick="addToCart('Luxury Leather Tote Handbag', 65.00, 'https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=600')"><i class="fa-solid fa-plus"></i></button>
+              </div>
             </div>
           </div>
         </div>
 
         <!-- Product 5 -->
-        <div class="product-card" data-category="Cosmetics" data-title="Rose Gold Eyeshadow & Palette Kit">
+        <div class="product-card" data-category="Cosmetics" data-title="Rose Gold Eyeshadow & Palette Kit" data-price="52.00">
           <div class="card-thumb">
-            <span class="vendor-tag"><i class="fa-solid fa-circle-check"></i> Glamour Beauty Store</span>
+            <span class="vendor-tag"><i class="fa-solid fa-circle-check"></i> Glamour Beauty</span>
             <img src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=600" alt="Beauty">
           </div>
           <div class="card-details">
             <span class="cat-label">Cosmetics</span>
             <h3 class="product-name">Rose Gold Eyeshadow & Palette Kit</h3>
+            <div class="rating-row"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> (27)</div>
             <div class="card-footer">
-              <span class="product-price">$52.00</span>
-              <button class="add-cart-btn" onclick="addToCart('Rose Gold Eyeshadow & Palette Kit', 52.00, 'https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=600')"><i class="fa-solid fa-plus"></i></button>
+              <div class="price-group"><span class="product-price">$52.00</span></div>
+              <div class="card-btns">
+                <button class="quick-view-btn" onclick="openQuickView('Rose Gold Eyeshadow & Palette Kit', '$52.00', 'Cosmetics', 'https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=600')"><i class="fa-solid fa-eye"></i></button>
+                <button class="add-cart-btn" onclick="addToCart('Rose Gold Eyeshadow & Palette Kit', 52.00, 'https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=600')"><i class="fa-solid fa-plus"></i></button>
+              </div>
             </div>
           </div>
         </div>
 
         <!-- Product 6 -->
-        <div class="product-card" data-category="Footwear" data-title="Retro Running Sport Shoes">
+        <div class="product-card" data-category="Footwear" data-title="Retro Running Sport Shoes" data-price="95.00">
           <div class="card-thumb">
-            <span class="vendor-tag"><i class="fa-solid fa-circle-check"></i> SneakerHub Vendor</span>
+            <span class="discount-badge">-25%</span>
+            <span class="vendor-tag"><i class="fa-solid fa-circle-check"></i> SneakerHub</span>
             <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=600" alt="Shoes">
           </div>
           <div class="card-details">
             <span class="cat-label">Footwear</span>
             <h3 class="product-name">Retro Running Sport Shoes</h3>
+            <div class="rating-row"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i> (52)</div>
             <div class="card-footer">
-              <span class="product-price">$95.00</span>
-              <button class="add-cart-btn" onclick="addToCart('Retro Running Sport Shoes', 95.00, 'https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=600')"><i class="fa-solid fa-plus"></i></button>
+              <div class="price-group"><span class="product-price">$95.00</span><span class="old-price">$120.00</span></div>
+              <div class="card-btns">
+                <button class="quick-view-btn" onclick="openQuickView('Retro Running Sport Shoes', '$95.00', 'Footwear', 'https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=600')"><i class="fa-solid fa-eye"></i></button>
+                <button class="add-cart-btn" onclick="addToCart('Retro Running Sport Shoes', 95.00, 'https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=600')"><i class="fa-solid fa-plus"></i></button>
+              </div>
             </div>
           </div>
         </div>
 
-        <!-- Product 7 -->
-        <div class="product-card" data-category="Apparel" data-title="Casual Denim Jacket with Sherpa Lining">
-          <div class="card-thumb">
-            <span class="vendor-tag"><i class="fa-solid fa-circle-check"></i> Denim Master</span>
-            <img src="https://images.unsplash.com/photo-1576995853123-5a10305d93c0?w=600" alt="Denim Jacket">
-          </div>
-          <div class="card-details">
-            <span class="cat-label">Apparel</span>
-            <h3 class="product-name">Casual Denim Jacket with Sherpa Lining</h3>
-            <div class="card-footer">
-              <span class="product-price">$78.00</span>
-              <button class="add-cart-btn" onclick="addToCart('Casual Denim Jacket with Sherpa Lining', 78.00, 'https://images.unsplash.com/photo-1576995853123-5a10305d93c0?w=600')"><i class="fa-solid fa-plus"></i></button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Product 8 -->
-        <div class="product-card" data-category="Accessories" data-title="Classic Polarized UV400 Sunglasses">
-          <div class="card-thumb">
-            <span class="vendor-tag"><i class="fa-solid fa-circle-check"></i> Visionary Wear</span>
-            <img src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=600" alt="Sunglasses">
-          </div>
-          <div class="card-details">
-            <span class="cat-label">Accessories</span>
-            <h3 class="product-name">Classic Polarized UV400 Sunglasses</h3>
-            <div class="card-footer">
-              <span class="product-price">$29.00</span>
-              <button class="add-cart-btn" onclick="addToCart('Classic Polarized UV400 Sunglasses', 29.00, 'https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=600')"><i class="fa-solid fa-plus"></i></button>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
 
     <!-- Featured Vendor Stores -->
-    <div style="margin-top: 80px;" id="become-vendor">
+    <div style="margin-top: 70px;" id="become-vendor">
       <h2 class="section-heading">Top Marketplace Sellers</h2>
-      <p style="color: var(--text-muted); font-size: 14px; margin-top: 4px;">Shop directly from our highest rated stores</p>
-      
       <div class="seller-grid">
         <div class="seller-card">
           <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200" alt="Store" class="seller-avatar">
           <div>
-            <h3 style="font-size: 16px; font-weight: 800;">Glamour Beauty Store</h3>
-            <p style="font-size: 12px; color: var(--text-muted);">Cosmetics & Skincare</p>
+            <h3 style="font-size: 15px; font-weight: 800;">Glamour Beauty Store</h3>
+            <p style="font-size: 11px; color: var(--text-muted);">Cosmetics & Skincare</p>
             <div style="color: #f59e0b; font-size: 12px; margin-top: 4px;"><i class="fa-solid fa-star"></i> 4.9 (1,240 Sales)</div>
           </div>
         </div>
         <div class="seller-card">
           <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200" alt="Store" class="seller-avatar">
           <div>
-            <h3 style="font-size: 16px; font-weight: 800;">SneakerHub Official</h3>
-            <p style="font-size: 12px; color: var(--text-muted);">Footwear & Athletic</p>
+            <h3 style="font-size: 15px; font-weight: 800;">SneakerHub Official</h3>
+            <p style="font-size: 11px; color: var(--text-muted);">Footwear & Athletic</p>
             <div style="color: #f59e0b; font-size: 12px; margin-top: 4px;"><i class="fa-solid fa-star"></i> 4.8 (850 Sales)</div>
           </div>
         </div>
         <div class="seller-card">
           <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=200" alt="Store" class="seller-avatar">
           <div>
-            <h3 style="font-size: 16px; font-weight: 800;">Elite Leather Co</h3>
-            <p style="font-size: 12px; color: var(--text-muted);">Bags & Leather Goods</p>
+            <h3 style="font-size: 15px; font-weight: 800;">Elite Leather Co</h3>
+            <p style="font-size: 11px; color: var(--text-muted);">Bags & Leather Goods</p>
             <div style="color: #f59e0b; font-size: 12px; margin-top: 4px;"><i class="fa-solid fa-star"></i> 5.0 (620 Sales)</div>
           </div>
         </div>
@@ -1059,22 +1169,49 @@
     </div>
 
     <!-- Customer Reviews -->
-    <div style="margin-top: 80px;">
+    <div style="margin-top: 70px;">
       <h2 class="section-heading">Loved By Shoppers</h2>
       <div class="testimonial-grid">
         <div class="review-card">
-          <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-          <p style="font-size: 14px; color: var(--text-muted); line-height: 1.6;">"Ordered the Air Sneakers and received them in 3 days! Premium quality and fantastic service from Kakufy."</p>
-          <div style="font-weight: 800; font-size: 14px; margin-top: 15px;">— Sarah L.</div>
+          <div style="color: #f59e0b; margin-bottom: 10px;"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+          <p style="font-size: 13px; color: var(--text-muted); line-height: 1.6;">"Ordered the Air Sneakers and received them in 3 days! Premium quality and fantastic service from Kakufy."</p>
+          <div style="font-weight: 800; font-size: 13px; margin-top: 12px;">— Sarah L.</div>
         </div>
         <div class="review-card">
-          <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-          <p style="font-size: 14px; color: var(--text-muted); line-height: 1.6;">"The cosmetics kit arrived safely with authentic seals. Kakufy is now my favorite multi-vendor shop!"</p>
-          <div style="font-weight: 800; font-size: 14px; margin-top: 15px;">— Emily R.</div>
+          <div style="color: #f59e0b; margin-bottom: 10px;"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+          <p style="font-size: 13px; color: var(--text-muted); line-height: 1.6;">"The cosmetics kit arrived safely with authentic seals. Kakufy is now my favorite multi-vendor shop!"</p>
+          <div style="font-weight: 800; font-size: 13px; margin-top: 12px;">— Emily R.</div>
         </div>
       </div>
     </div>
 
+    <!-- Newsletter Box -->
+    <div class="newsletter-section">
+      <h2 style="font-size: 28px; font-weight: 800;">Get Exclusive Discount Coupons</h2>
+      <p style="color: #94a3b8; margin-top: 8px; font-size: 13px;">Subscribe to receive weekly multi-vendor flash sale notifications.</p>
+      <div class="newsletter-input-box">
+        <input type="email" placeholder="Enter your email address...">
+        <button onclick="alert('Subscribed successfully!')">Subscribe</button>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Quick View Modal -->
+  <div class="modal-overlay" id="quickViewModal">
+    <div class="modal-card">
+      <button class="modal-close" onclick="closeQuickView()">&times;</button>
+      <img id="modalImg" src="" style="width: 100%; height: 240px; object-fit: cover; border-radius: 16px;">
+      <div>
+        <span id="modalCat" style="color: var(--kakufy-orange); font-size: 11px; font-weight: 800; text-transform: uppercase;"></span>
+        <h2 id="modalTitle" style="font-size: 20px; font-weight: 800; margin: 8px 0;"></h2>
+        <div id="modalPrice" style="font-size: 22px; font-weight: 800; color: var(--kakufy-pink); margin-bottom: 15px;"></div>
+        <p style="font-size: 12px; color: var(--text-muted); line-height: 1.5; margin-bottom: 20px;">
+          Guaranteed authentic product shipped directly from verified Kakufy marketplace sellers. Includes free 30-day customer protection.
+        </p>
+        <button style="width:100%; background: var(--kakufy-gradient); color: white; border: none; padding: 12px; border-radius: 12px; font-weight: 800; cursor: pointer;" onclick="alert('Item Added To Bag!'); closeQuickView();">Buy Now</button>
+      </div>
+    </div>
   </div>
 
   <!-- Cart Offcanvas -->
@@ -1083,15 +1220,11 @@
       <h3 style="font-weight: 800;">Your Shopping Bag</h3>
       <button onclick="toggleCart()" style="background:none; border:none; font-size: 20px; cursor:pointer;"><i class="fa-solid fa-xmark"></i></button>
     </div>
-    <div class="cart-items-list" id="cartItemsList">
+    <div id="cartItemsList" style="padding: 20px; flex: 1; overflow-y: auto;">
       <p style="color: var(--text-muted); text-align: center; margin-top: 40px;">Your bag is empty!</p>
     </div>
-    <div class="cart-footer">
-      <div style="display: flex; justify-content: space-between; margin-bottom: 16px; font-weight: 800;">
-        <span>Total:</span>
-        <span id="cartTotalAmount">$0.00</span>
-      </div>
-      <button class="checkout-btn" onclick="alert('Proceeding to Checkout process...')">Checkout Now</button>
+    <div style="padding: 20px; border-top: 1px solid var(--border-color); background: #f8fafc;">
+      <button onclick="alert('Proceeding to Checkout...')" style="width: 100%; background: var(--kakufy-gradient); color: white; border: none; padding: 14px; border-radius: 12px; font-weight: 800; cursor: pointer;">Checkout Now</button>
     </div>
   </div>
 
@@ -1107,8 +1240,8 @@
   <footer>
     <div class="footer-container">
       <div>
-        <div style="font-size: 24px; font-weight: 800; color: white; margin-bottom: 12px;">Kakufy</div>
-        <p style="font-size: 14px; line-height: 1.6;">Kakufy is a premier multi-vendor e-commerce platform curated for fashion, cosmetics, footwear, and lifestyle goods worldwide.</p>
+        <div style="font-size: 22px; font-weight: 800; color: white; margin-bottom: 12px;">Kakufy</div>
+        <p style="font-size: 13px; line-height: 1.6;">Kakufy is a premier multi-vendor e-commerce platform curated for fashion, cosmetics, footwear, and lifestyle goods worldwide.</p>
       </div>
       <div>
         <div class="footer-title">Categories</div>
@@ -1136,8 +1269,15 @@
         </ul>
       </div>
     </div>
+
     <div class="footer-bottom">
-      &copy; 2026 KAKUFY. All rights reserved. Designed with custom gradient branding.
+      <div>&copy; 2026 KAKUFY. All rights reserved. Designed with custom gradient branding.</div>
+      <div style="display: flex; gap: 12px; font-size: 20px; color: white;">
+        <i class="fa-brands fa-cc-visa"></i>
+        <i class="fa-brands fa-cc-mastercard"></i>
+        <i class="fa-brands fa-cc-paypal"></i>
+        <i class="fa-brands fa-apple-pay"></i>
+      </div>
     </div>
   </footer>
 
@@ -1157,11 +1297,11 @@
     function updateCartUI() {
       document.getElementById('cartBadge').innerText = cart.length;
       const list = document.getElementById('cartItemsList');
-      const totalEl = document.getElementById('cartTotalAmount');
+      const headerTotal = document.getElementById('headerCartTotal');
       
       if (cart.length === 0) {
         list.innerHTML = '<p style="color: var(--text-muted); text-align: center; margin-top: 40px;">Your bag is empty!</p>';
-        totalEl.innerText = '$0.00';
+        headerTotal.innerText = '$0.00';
         return;
       }
 
@@ -1170,37 +1310,23 @@
       cart.forEach((item, index) => {
         total += item.price;
         html += `
-          <div class="cart-item">
-            <img src="${item.image}" alt="Item">
+          <div style="display:flex; gap:12px; margin-bottom:15px; align-items:center;">
+            <img src="${item.image}" style="width:50px; height:50px; border-radius:8px; object-fit:cover;">
             <div style="flex:1;">
-              <div style="font-weight:700; font-size:14px;">${item.title}</div>
-              <div style="color:var(--kakufy-pink); font-weight:800; font-size:14px; margin-top:4px;">$${item.price.toFixed(2)}</div>
+              <div style="font-weight:700; font-size:13px;">${item.title}</div>
+              <div style="color:var(--kakufy-pink); font-weight:800; font-size:13px;">$${item.price.toFixed(2)}</div>
             </div>
             <button onclick="removeFromCart(${index})" style="background:none; border:none; color:red; cursor:pointer;"><i class="fa-solid fa-trash-can"></i></button>
           </div>
         `;
       });
       list.innerHTML = html;
-      totalEl.innerText = '$' + total.toFixed(2);
+      headerTotal.innerText = '$' + total.toFixed(2);
     }
 
     function removeFromCart(index) {
       cart.splice(index, 1);
       updateCartUI();
-    }
-
-    function filterCategory(cat, btn) {
-      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-      if(btn) btn.classList.add('active');
-
-      const cards = document.querySelectorAll('.product-card');
-      cards.forEach(card => {
-        if (cat === 'all' || card.dataset.category === cat) {
-          card.style.display = 'flex';
-        } else {
-          card.style.display = 'none';
-        }
-      });
     }
 
     function filterProducts() {
@@ -1214,6 +1340,47 @@
           card.style.display = 'none';
         }
       });
+    }
+
+    function filterCategory(cat, btn) {
+      if(btn) {
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+      }
+
+      const cards = document.querySelectorAll('.product-card');
+      cards.forEach(card => {
+        if (cat === 'all' || card.dataset.category === cat) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    function sortProducts(type) {
+      const grid = document.getElementById('productGrid');
+      const cards = Array.from(grid.querySelectorAll('.product-card'));
+
+      if (type === 'low-high') {
+        cards.sort((a, b) => parseFloat(a.dataset.price) - parseFloat(b.dataset.price));
+      } else if (type === 'high-low') {
+        cards.sort((a, b) => parseFloat(b.dataset.price) - parseFloat(a.dataset.price));
+      }
+
+      cards.forEach(card => grid.appendChild(card));
+    }
+
+    function openQuickView(title, price, cat, img) {
+      document.getElementById('modalTitle').innerText = title;
+      document.getElementById('modalPrice').innerText = price;
+      document.getElementById('modalCat').innerText = cat;
+      document.getElementById('modalImg').src = img;
+      document.getElementById('quickViewModal').classList.add('active');
+    }
+
+    function closeQuickView() {
+      document.getElementById('quickViewModal').classList.remove('active');
     }
   </script>
 </body>
