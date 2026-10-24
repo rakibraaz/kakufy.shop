@@ -604,6 +604,41 @@
       .footer-container { grid-template-columns: 1fr; }
       .search-box { display: none; }
     }
+    <!-- Floating WhatsApp Button -->
+<a href="https://wa.me/8615140012194?text=Hello%20Kakufy,%20I%20want%20to%20know%20more%20about%20your%20products!" 
+   target="_blank" 
+   class="whatsapp-float"
+   title="Chat with us on WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+</a>
+
+<style>
+  .whatsapp-float {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: #25d366;
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 32px;
+    box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: transform 0.3s ease, background 0.3s ease;
+  }
+
+  .whatsapp-float:hover {
+    transform: scale(1.1);
+    background: #20ba5a;
+    color: white;
+  }
+</style>
   </style>
 </head>
 <body>
