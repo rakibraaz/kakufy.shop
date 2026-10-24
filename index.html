@@ -3,388 +3,927 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kakufy - Fashion, Curated For You</title>
+  <title>Kakufy - Fashion, Curated For You | Multi-Vendor Marketplace</title>
+  <!-- Google Fonts & FontAwesome -->
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
   <style>
-    /* Reset & Fonts */
+    :root {
+      --kakufy-orange: #ff5722;
+      --kakufy-pink: #e91e63;
+      --kakufy-purple: #9c27b0;
+      --kakufy-deep-blue: #1e1b4b;
+      --kakufy-gradient: linear-gradient(135deg, #ff5722 0%, #e91e63 50%, #8e24aa 100%);
+      --kakufy-gradient-text: linear-gradient(135deg, #ff7043, #ec407a, #ab47bc);
+      --bg-light: #f8fafc;
+      --text-main: #0f172a;
+      --text-muted: #64748b;
+    }
+
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-family: 'Plus Jakarta Sans', sans-serif;
     }
 
     body {
-      background-color: #f8f9fa;
-      color: #333;
+      background-color: var(--bg-light);
+      color: var(--text-main);
+      overflow-x: hidden;
     }
 
-    /* Header */
+    /* Top Announcement Bar */
+    .announcement-bar {
+      background: var(--kakufy-gradient);
+      color: white;
+      text-align: center;
+      padding: 9px 15px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+
+    /* Main Header */
     header {
-      background: #ffffff;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
       position: sticky;
       top: 0;
       z-index: 1000;
-    }
-
-    .top-bar {
-      background: linear-gradient(135deg, #ff007f, #7b1fa2);
-      color: #fff;
-      text-align: center;
-      padding: 8px 15px;
-      font-size: 14px;
-      font-weight: 500;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+      border-bottom: 1px solid #f1f5f9;
     }
 
     .nav-container {
-      max-width: 1200px;
+      max-width: 1280px;
       margin: 0 auto;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 15px 20px;
+      padding: 16px 24px;
     }
 
-    .logo {
+    .brand-logo {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 12px;
       text-decoration: none;
     }
 
-    .logo-badge {
-      background: linear-gradient(135deg, #ff5722, #e91e63, #9c27b0);
+    .logo-icon-3d {
+      width: 48px;
+      height: 48px;
+      background: var(--kakufy-gradient);
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       color: white;
-      font-weight: bold;
-      font-size: 24px;
-      padding: 6px 14px;
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(233, 30, 99, 0.3);
+      font-size: 26px;
+      font-weight: 800;
+      box-shadow: 0 8px 20px rgba(233, 30, 99, 0.35);
+      transform: rotate(-3deg);
+      transition: transform 0.3s;
     }
 
-    .logo-text {
+    .brand-logo:hover .logo-icon-3d {
+      transform: rotate(0deg) scale(1.05);
+    }
+
+    .logo-text-group {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .logo-main-text {
       font-size: 28px;
       font-weight: 800;
-      color: #1a1a2e;
+      background: var(--kakufy-gradient-text);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      line-height: 1.1;
       letter-spacing: -0.5px;
     }
 
-    .search-bar {
+    .logo-sub-text {
+      font-size: 10px;
+      font-weight: 700;
+      color: #e91e63;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* Search Engine */
+    .search-box {
       display: flex;
       flex: 1;
-      max-width: 450px;
-      margin: 0 30px;
+      max-width: 480px;
+      margin: 0 32px;
+      position: relative;
     }
 
-    .search-bar input {
+    .search-box input {
       width: 100%;
-      padding: 10px 15px;
-      border: 1px solid #ddd;
-      border-radius: 25px 0 0 25px;
+      padding: 12px 20px 12px 45px;
+      border: 2px solid #e2e8f0;
+      border-radius: 30px;
+      font-size: 14px;
       outline: none;
+      transition: all 0.3s;
     }
 
-    .search-bar button {
-      padding: 10px 20px;
-      background: #7b1fa2;
-      color: white;
-      border: none;
-      border-radius: 0 25px 25px 0;
-      cursor: pointer;
+    .search-box input:focus {
+      border-color: #e91e63;
+      box-shadow: 0 0 0 4px rgba(233, 30, 99, 0.1);
     }
 
-    .nav-links {
+    .search-box i {
+      position: absolute;
+      left: 18px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-muted);
+    }
+
+    /* Header Controls */
+    .header-actions {
       display: flex;
+      align-items: center;
       gap: 20px;
-      list-style: none;
     }
 
-    .nav-links a {
-      text-decoration: none;
-      color: #444;
-      font-weight: 600;
-      transition: color 0.3s;
+    .action-btn {
+      background: none;
+      border: none;
+      font-size: 20px;
+      color: var(--text-main);
+      cursor: pointer;
+      position: relative;
+      transition: color 0.2s;
     }
 
-    .nav-links a:hover {
-      color: #e91e63;
+    .action-btn:hover {
+      color: var(--kakufy-pink);
     }
 
-    /* Hero Banner */
-    .hero {
-      background: linear-gradient(135deg, #111827, #2d0b5a);
+    .badge-count {
+      position: absolute;
+      top: -8px;
+      right: -10px;
+      background: var(--kakufy-orange);
       color: white;
-      padding: 80px 20px;
-      text-align: center;
+      font-size: 11px;
+      font-weight: 800;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
-    .hero h1 {
-      font-size: 48px;
+    .become-vendor-btn {
+      background: var(--kakufy-gradient);
+      color: white;
+      padding: 10px 20px;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 13px;
+      box-shadow: 0 4px 15px rgba(233, 30, 99, 0.3);
+      transition: all 0.3s;
+    }
+
+    .become-vendor-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(233, 30, 99, 0.4);
+    }
+
+    /* Hero Section */
+    .hero-section {
+      background: linear-gradient(135deg, #0f172a 0%, #2e1065 100%);
+      color: white;
+      padding: 90px 24px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .hero-title {
+      font-size: 54px;
       font-weight: 800;
-      margin-bottom: 15px;
-      background: linear-gradient(to right, #ff758c, #ff7eb3);
+      line-height: 1.15;
+      margin-bottom: 20px;
+    }
+
+    .hero-title span {
+      background: var(--kakufy-gradient-text);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
 
-    .hero p {
+    .hero-description {
       font-size: 18px;
-      color: #d1d5db;
-      margin-bottom: 25px;
+      color: #94a3b8;
+      margin-bottom: 35px;
+      line-height: 1.6;
     }
 
-    .hero .btn {
-      display: inline-block;
-      background: linear-gradient(135deg, #ff007f, #7b1fa2);
+    .hero-cta {
+      display: flex;
+      gap: 16px;
+    }
+
+    .cta-btn-primary {
+      background: var(--kakufy-gradient);
       color: white;
-      padding: 12px 30px;
+      padding: 16px 36px;
       border-radius: 30px;
       text-decoration: none;
-      font-weight: bold;
-      box-shadow: 0 4px 15px rgba(255, 0, 127, 0.4);
-      transition: transform 0.2s;
-    }
-
-    .hero .btn:hover {
-      transform: translateY(-2px);
-    }
-
-    /* Main Content */
-    .container {
-      max-width: 1200px;
-      margin: 40px auto;
-      padding: 0 20px;
-    }
-
-    .section-title {
-      font-size: 26px;
       font-weight: 700;
-      margin-bottom: 25px;
+      font-size: 16px;
+      box-shadow: 0 8px 25px rgba(233, 30, 99, 0.4);
+    }
+
+    .cta-btn-secondary {
+      background: rgba(255,255,255,0.1);
+      color: white;
+      padding: 16px 36px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 16px;
+      backdrop-filter: blur(5px);
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+
+    .hero-image-card {
       position: relative;
-      display: inline-block;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+      border: 2px solid rgba(255,255,255,0.1);
     }
 
-    .section-title::after {
-      content: '';
-      position: absolute;
-      bottom: -6px;
-      left: 0;
-      width: 50%;
-      height: 4px;
-      background: #e91e63;
-      border-radius: 2px;
+    .hero-image-card img {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+      display: block;
     }
 
-    /* Product Grid */
+    /* Multi-Vendor Highlights */
+    .vendor-strip {
+      background: white;
+      padding: 24px 0;
+      border-bottom: 1px solid #e2e8f0;
+    }
+
+    .vendor-strip-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .strip-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 700;
+      font-size: 14px;
+      color: var(--text-main);
+    }
+
+    .strip-item i {
+      font-size: 24px;
+      color: var(--kakufy-pink);
+    }
+
+    /* Category Navigation */
+    .section-container {
+      max-width: 1280px;
+      margin: 60px auto;
+      padding: 0 24px;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 30px;
+    }
+
+    .section-heading {
+      font-size: 32px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+    }
+
+    .category-tabs {
+      display: flex;
+      gap: 12px;
+      overflow-x: auto;
+      padding-bottom: 8px;
+    }
+
+    .tab-btn {
+      padding: 10px 22px;
+      border-radius: 20px;
+      background: white;
+      border: 1px solid #e2e8f0;
+      font-weight: 700;
+      font-size: 14px;
+      cursor: pointer;
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+
+    .tab-btn.active, .tab-btn:hover {
+      background: var(--kakufy-gradient);
+      color: white;
+      border-color: transparent;
+      box-shadow: 0 4px 12px rgba(233, 30, 99, 0.25);
+    }
+
+    /* Product Cards Grid */
     .product-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-      gap: 25px;
+      grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+      gap: 28px;
     }
 
     .product-card {
       background: white;
-      border-radius: 16px;
+      border-radius: 20px;
       overflow: hidden;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-      transition: transform 0.3s, box-shadow 0.3s;
+      border: 1px solid #f1f5f9;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+      transition: all 0.3s;
       display: flex;
       flex-direction: column;
+      position: relative;
     }
 
     .product-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+      transform: translateY(-6px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.08);
     }
 
-    .product-image {
+    .card-thumb {
+      position: relative;
+      height: 250px;
+      overflow: hidden;
+      background: #f8fafc;
+    }
+
+    .card-thumb img {
       width: 100%;
-      height: 220px;
+      height: 100%;
       object-fit: cover;
-      background: #eee;
+      transition: transform 0.5s;
     }
 
-    .product-info {
-      padding: 15px;
+    .product-card:hover .card-thumb img {
+      transform: scale(1.08);
+    }
+
+    .vendor-tag {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      background: rgba(15, 23, 42, 0.8);
+      backdrop-filter: blur(6px);
+      color: white;
+      padding: 5px 12px;
+      border-radius: 12px;
+      font-size: 11px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .vendor-tag i {
+      color: #38bdf8;
+    }
+
+    .card-details {
+      padding: 20px;
       display: flex;
       flex-direction: column;
       flex: 1;
     }
 
-    .product-category {
-      font-size: 12px;
-      color: #888;
+    .cat-label {
+      font-size: 11px;
+      font-weight: 800;
+      color: var(--kakufy-orange);
       text-transform: uppercase;
-      font-weight: 600;
-      margin-bottom: 5px;
+      letter-spacing: 0.5px;
+      margin-bottom: 6px;
     }
 
-    .product-title {
+    .product-name {
       font-size: 16px;
-      font-weight: 600;
-      margin-bottom: 10px;
-      color: #222;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 12px;
+      line-height: 1.4;
     }
 
-    .product-bottom {
+    .card-footer {
       margin-top: auto;
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
 
-    .price {
-      font-size: 18px;
-      font-weight: bold;
-      color: #7b1fa2;
+    .product-price {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--kakufy-deep-blue);
     }
 
-    .add-to-cart {
-      background: #f3e5f5;
-      color: #7b1fa2;
+    .add-cart-btn {
+      background: #f1f5f9;
+      color: var(--text-main);
       border: none;
-      padding: 8px 14px;
-      border-radius: 20px;
-      font-weight: 600;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       cursor: pointer;
-      transition: background 0.3s, color 0.3s;
+      font-size: 16px;
+      transition: all 0.3s;
     }
 
-    .add-to-cart:hover {
-      background: #7b1fa2;
+    .add-cart-btn:hover {
+      background: var(--kakufy-gradient);
       color: white;
+      box-shadow: 0 4px 12px rgba(233, 30, 99, 0.3);
+    }
+
+    /* Cart Offcanvas Drawer */
+    .cart-drawer {
+      position: fixed;
+      top: 0;
+      right: -400px;
+      width: 380px;
+      height: 100%;
+      background: white;
+      box-shadow: -10px 0 30px rgba(0,0,0,0.15);
+      z-index: 2000;
+      transition: right 0.3s ease;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .cart-drawer.open {
+      right: 0;
+    }
+
+    .cart-header {
+      padding: 20px;
+      background: var(--bg-light);
+      border-bottom: 1px solid #e2e8f0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .cart-items-list {
+      padding: 20px;
+      flex: 1;
+      overflow-y: auto;
+    }
+
+    .cart-item {
+      display: flex;
+      gap: 14px;
+      margin-bottom: 16px;
+      border-bottom: 1px solid #f1f5f9;
+      padding-bottom: 16px;
+    }
+
+    .cart-item img {
+      width: 60px;
+      height: 60px;
+      border-radius: 10px;
+      object-fit: cover;
+    }
+
+    .cart-footer {
+      padding: 20px;
+      border-top: 1px solid #e2e8f0;
+      background: var(--bg-light);
+    }
+
+    .checkout-btn {
+      width: 100%;
+      background: var(--kakufy-gradient);
+      color: white;
+      border: none;
+      padding: 14px;
+      border-radius: 12px;
+      font-weight: 800;
+      cursor: pointer;
     }
 
     /* Footer */
     footer {
-      background: #111827;
-      color: #9ca3af;
-      padding: 40px 20px 20px;
-      margin-top: 60px;
-      text-align: center;
+      background: #0f172a;
+      color: #94a3b8;
+      padding: 60px 24px 30px;
+      margin-top: 100px;
     }
 
-    footer p {
+    .footer-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .footer-title {
+      color: white;
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer-links a {
+      color: #94a3b8;
+      text-decoration: none;
       font-size: 14px;
+      transition: color 0.2s;
     }
 
-    /* Responsive */
+    .footer-links a:hover {
+      color: white;
+    }
+
+    .footer-bottom {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding-top: 30px;
+      border-top: 1px solid #1e293b;
+      text-align: center;
+      font-size: 13px;
+    }
+
     @media (max-width: 768px) {
-      .nav-container {
-        flex-direction: column;
-        gap: 15px;
-      }
-      .search-bar {
-        max-width: 100%;
-        margin: 0;
-      }
-      .hero h1 {
-        font-size: 32px;
-      }
+      .hero-container { grid-template-columns: 1fr; text-align: center; }
+      .hero-title { font-size: 38px; }
+      .hero-cta { justify-content: center; }
+      .footer-container { grid-template-columns: 1fr; }
+      .search-box { display: none; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Top Announcement Bar -->
-  <div class="top-bar">
-    🎉 Welcome to Kakufy! Free shipping on orders over $50!
+  <!-- Announcement Bar -->
+  <div class="announcement-bar">
+    ⚡ KAKUFY MULTI-VENDOR MARKETPLACE — SHOP FASHION, SHOES & COSMETICS FROM VERIFIED SELLERS!
   </div>
 
-  <!-- Header Navigation -->
+  <!-- Main Navigation -->
   <header>
     <div class="nav-container">
-      <a href="#" class="logo">
-        <div class="logo-badge">K</div>
-        <div class="logo-text">Kakufy</div>
+      <a href="#" class="brand-logo">
+        <div class="logo-icon-3d">K</div>
+        <div class="logo-text-group">
+          <span class="logo-main-text">Kakufy</span>
+          <span class="logo-sub-text">Fashion, Curated For You</span>
+        </div>
       </a>
 
-      <div class="search-bar">
-        <input type="text" placeholder="Search fashion, cosmetics, shoes...">
-        <button>Search</button>
+      <div class="search-box">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" id="searchInput" placeholder="Search fashion, cosmetics, shoes, vendors..." onkeyup="filterProducts()">
       </div>
 
-      <ul class="nav-links">
-        <li><a href="#">Fashion</a></li>
-        <li><a href="#">Footwear</a></li>
-        <li><a href="#">Cosmetics</a></li>
-        <li><a href="#">Cart (0)</a></li>
-      </ul>
+      <div class="header-actions">
+        <a href="#become-vendor" class="become-vendor-btn"><i class="fa-solid fa-store"></i> Become a Seller</a>
+        <button class="action-btn" onclick="toggleCart()">
+          <i class="fa-solid fa-bag-shopping"></i>
+          <span class="badge-count" id="cartBadge">0</span>
+        </button>
+      </div>
     </div>
   </header>
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <h1>Fashion, Curated For You</h1>
-    <p>Discover the latest trends in clothing, shoes, cosmetics, and accessories.</p>
-    <a href="#products" class="btn">Shop Collection</a>
+  <!-- Hero Banner -->
+  <section class="hero-section">
+    <div class="hero-container">
+      <div>
+        <h1 class="hero-title">Discover Top Brands & <span>Multi-Vendor</span> Collections</h1>
+        <p class="hero-description">Explore curated footwear, luxury cosmetics, vibrant apparel, and accessories all in one destination.</p>
+        <div class="hero-cta">
+          <a href="#products-section" class="cta-btn-primary">Explore Products</a>
+          <a href="#become-vendor" class="cta-btn-secondary">Open Your Shop</a>
+        </div>
+      </div>
+      <div class="hero-image-card">
+        <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?w=800" alt="Kakufy Shopping Experience">
+      </div>
+    </div>
   </section>
 
-  <!-- Featured Products -->
-  <div class="container" id="products">
-    <h2 class="section-title">Featured Products</h2>
-    <br><br>
-    <div class="product-grid">
+  <!-- Vendor Value Proposition Strip -->
+  <div class="vendor-strip">
+    <div class="vendor-strip-container">
+      <div class="strip-item"><i class="fa-solid fa-truck-fast"></i> Express Worldwide Delivery</div>
+      <div class="strip-item"><i class="fa-solid fa-shield-halved"></i> 100% Verified Sellers</div>
+      <div class="strip-item"><i class="fa-solid fa-rotate-left"></i> Easy 30-Day Returns</div>
+      <div class="strip-item"><i class="fa-solid fa-headset"></i> 24/7 Dedicated Support</div>
+    </div>
+  </div>
 
+  <!-- Main Marketplace Section -->
+  <div class="section-container" id="products-section">
+    <div class="section-header">
+      <div>
+        <h2 class="section-heading">Featured Products</h2>
+        <p style="color: var(--text-muted); font-size: 14px; margin-top: 4px;">Top picks from our marketplace vendors</p>
+      </div>
+      <div class="category-tabs">
+        <button class="tab-btn active" onclick="filterCategory('all', this)">All Items</button>
+        <button class="tab-btn" onclick="filterCategory('Footwear', this)">Footwear</button>
+        <button class="tab-btn" onclick="filterCategory('Cosmetics', this)">Cosmetics</button>
+        <button class="tab-btn" onclick="filterCategory('Apparel', this)">Apparel</button>
+        <button class="tab-btn" onclick="filterCategory('Accessories', this)">Accessories</button>
+      </div>
+    </div>
+
+    <!-- Dynamic Product Grid -->
+    <div class="product-grid" id="productGrid">
       <!-- Product 1 -->
-      <div class="product-card">
-        <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500" alt="Sneakers" class="product-image">
-        <div class="product-info">
-          <div class="product-category">Footwear</div>
-          <div class="product-title">Classic White Gold Sneakers</div>
-          <div class="product-bottom">
-            <div class="price">$89.00</div>
-            <button class="add-to-cart">Add to Cart</button>
+      <div class="product-card" data-category="Footwear" data-title="Classic White Gold Air Sneakers">
+        <div class="card-thumb">
+          <span class="vendor-tag"><i class="fa-solid fa-circle-check"></i> SneakerHub Vendor</span>
+          <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600" alt="Sneakers">
+        </div>
+        <div class="card-details">
+          <span class="cat-label">Footwear</span>
+          <h3 class="product-name">Classic White Gold Air Sneakers</h3>
+          <div class="card-footer">
+            <span class="product-price">$89.00</span>
+            <button class="add-cart-btn" onclick="addToCart('Classic White Gold Air Sneakers', 89.00, 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600')">
+              <i class="fa-solid fa-plus"></i>
+            </button>
           </div>
         </div>
       </div>
 
       <!-- Product 2 -->
-      <div class="product-card">
-        <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=500" alt="Cosmetics" class="product-image">
-        <div class="product-info">
-          <div class="product-category">Cosmetics</div>
-          <div class="product-title">Luxury Makeup Kit & Lipstick</div>
-          <div class="product-bottom">
-            <div class="price">$45.00</div>
-            <button class="add-to-cart">Add to Cart</button>
+      <div class="product-card" data-category="Cosmetics" data-title="Velvet Matte Lipstick & Glow Serum">
+        <div class="card-thumb">
+          <span class="vendor-tag"><i class="fa-solid fa-circle-check"></i> Glamour Beauty Store</span>
+          <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=600" alt="Cosmetics">
+        </div>
+        <div class="card-details">
+          <span class="cat-label">Cosmetics</span>
+          <h3 class="product-name">Velvet Matte Lipstick & Glow Serum</h3>
+          <div class="card-footer">
+            <span class="product-price">$45.00</span>
+            <button class="add-cart-btn" onclick="addToCart('Velvet Matte Lipstick & Glow Serum', 45.00, 'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=600')">
+              <i class="fa-solid fa-plus"></i>
+            </button>
           </div>
         </div>
       </div>
 
       <!-- Product 3 -->
-      <div class="product-card">
-        <img src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=500" alt="Fashion" class="product-image">
-        <div class="product-info">
-          <div class="product-category">Fashion</div>
-          <div class="product-title">Pastel Cotton T-Shirt Set</div>
-          <div class="product-bottom">
-            <div class="price">$35.00</div>
-            <button class="add-to-cart">Add to Cart</button>
+      <div class="product-card" data-category="Apparel" data-title="Pastel Cotton Premium T-Shirt Set">
+        <div class="card-thumb">
+          <span class="vendor-tag"><i class="fa-solid fa-circle-check"></i> Urban Outfitters</span>
+          <img src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=600" alt="Apparel">
+        </div>
+        <div class="card-details">
+          <span class="cat-label">Apparel</span>
+          <h3 class="product-name">Pastel Cotton Premium T-Shirt Set</h3>
+          <div class="card-footer">
+            <span class="product-price">$35.00</span>
+            <button class="add-cart-btn" onclick="addToCart('Pastel Cotton Premium T-Shirt Set', 35.00, 'https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=600')">
+              <i class="fa-solid fa-plus"></i>
+            </button>
           </div>
         </div>
       </div>
 
       <!-- Product 4 -->
-      <div class="product-card">
-        <img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=500" alt="Accessories" class="product-image">
-        <div class="product-info">
-          <div class="product-category">Accessories</div>
-          <div class="product-title">Elegance Shopping Tote Bag</div>
-          <div class="product-bottom">
-            <div class="price">$65.00</div>
-            <button class="add-to-cart">Add to Cart</button>
+      <div class="product-card" data-category="Accessories" data-title="Luxury Leather Tote Handbag">
+        <div class="card-thumb">
+          <span class="vendor-tag"><i class="fa-solid fa-circle-check"></i> Elite Leather Co</span>
+          <img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=600" alt="Accessories">
+        </div>
+        <div class="card-details">
+          <span class="cat-label">Accessories</span>
+          <h3 class="product-name">Luxury Leather Tote Handbag</h3>
+          <div class="card-footer">
+            <span class="product-price">$65.00</span>
+            <button class="add-cart-btn" onclick="addToCart('Luxury Leather Tote Handbag', 65.00, 'https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=600')">
+              <i class="fa-solid fa-plus"></i>
+            </button>
           </div>
         </div>
       </div>
 
+      <!-- Product 5 -->
+      <div class="product-card" data-category="Cosmetics" data-title="Rose Gold Eyeshadow & Palette Kit">
+        <div class="card-thumb">
+          <span class="vendor-tag"><i class="fa-solid fa-circle-check"></i> Glamour Beauty Store</span>
+          <img src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=600" alt="Beauty">
+        </div>
+        <div class="card-details">
+          <span class="cat-label">Cosmetics</span>
+          <h3 class="product-name">Rose Gold Eyeshadow & Palette Kit</h3>
+          <div class="card-footer">
+            <span class="product-price">$52.00</span>
+            <button class="add-cart-btn" onclick="addToCart('Rose Gold Eyeshadow & Palette Kit', 52.00, 'https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=600')">
+              <i class="fa-solid fa-plus"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product 6 -->
+      <div class="product-card" data-category="Footwear" data-title="Retro Running Sport Shoes">
+        <div class="card-thumb">
+          <span class="vendor-tag"><i class="fa-solid fa-circle-check"></i> SneakerHub Vendor</span>
+          <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=600" alt="Shoes">
+        </div>
+        <div class="card-details">
+          <span class="cat-label">Footwear</span>
+          <h3 class="product-name">Retro Running Sport Shoes</h3>
+          <div class="card-footer">
+            <span class="product-price">$95.00</span>
+            <button class="add-cart-btn" onclick="addToCart('Retro Running Sport Shoes', 95.00, 'https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=600')">
+              <i class="fa-solid fa-plus"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cart Offcanvas -->
+  <div class="cart-drawer" id="cartDrawer">
+    <div class="cart-header">
+      <h3 style="font-weight: 800;">Your Shopping Bag</h3>
+      <button onclick="toggleCart()" style="background:none; border:none; font-size: 20px; cursor:pointer;"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="cart-items-list" id="cartItemsList">
+      <p style="color: var(--text-muted); text-align: center; margin-top: 40px;">Your bag is empty!</p>
+    </div>
+    <div class="cart-footer">
+      <div style="display: flex; justify-content: space-between; margin-bottom: 16px; font-weight: 800;">
+        <span>Total:</span>
+        <span id="cartTotalAmount">$0.00</span>
+      </div>
+      <button class="checkout-btn" onclick="alert('Proceeding to Checkout process...')">Checkout Now</button>
     </div>
   </div>
 
   <!-- Footer -->
   <footer>
-    <p>&copy; 2026 KAKUFY. All rights reserved.</p>
+    <div class="footer-container">
+      <div>
+        <div style="font-size: 24px; font-weight: 800; color: white; margin-bottom: 12px;">Kakufy</div>
+        <p style="font-size: 14px; line-height: 1.6;">Kakufy is a premier multi-vendor e-commerce platform curated for fashion, cosmetics, footwear, and lifestyle goods worldwide.</p>
+      </div>
+      <div>
+        <div class="footer-title">Categories</div>
+        <ul class="footer-links">
+          <li><a href="#">Fashion Apparel</a></li>
+          <li><a href="#">Footwear & Sneakers</a></li>
+          <li><a href="#">Cosmetics & Beauty</a></li>
+          <li><a href="#">Accessories</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-title">Vendors</div>
+        <ul class="footer-links">
+          <li><a href="#become-vendor">Seller Registration</a></li>
+          <li><a href="#">Vendor Dashboard</a></li>
+          <li><a href="#">Marketplace Policy</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-title">Help & Support</div>
+        <ul class="footer-links">
+          <li><a href="#">Track Order</a></li>
+          <li><a href="#">Shipping Policy</a></li>
+          <li><a href="#">Contact Us</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2026 KAKUFY. All rights reserved. Designed with custom gradient branding.
+    </div>
   </footer>
 
+  <script>
+    let cart = [];
+
+    function toggleCart() {
+      document.getElementById('cartDrawer').classList.toggle('open');
+    }
+
+    function addToCart(title, price, image) {
+      cart.push({ title, price, image });
+      updateCartUI();
+      toggleCart();
+    }
+
+    function updateCartUI() {
+      document.getElementById('cartBadge').innerText = cart.length;
+      const list = document.getElementById('cartItemsList');
+      const totalEl = document.getElementById('cartTotalAmount');
+      
+      if (cart.length === 0) {
+        list.innerHTML = '<p style="color: var(--text-muted); text-align: center; margin-top: 40px;">Your bag is empty!</p>';
+        totalEl.innerText = '$0.00';
+        return;
+      }
+
+      let html = '';
+      let total = 0;
+      cart.forEach((item, index) => {
+        total += item.price;
+        html += `
+          <div class="cart-item">
+            <img src="${item.image}" alt="Item">
+            <div style="flex:1;">
+              <div style="font-weight:700; font-size:14px;">${item.title}</div>
+              <div style="color:var(--kakufy-pink); font-weight:800; font-size:14px; margin-top:4px;">$${item.price.toFixed(2)}</div>
+            </div>
+            <button onclick="removeFromCart(${index})" style="background:none; border:none; color:red; cursor:pointer;"><i class="fa-solid fa-trash-can"></i></button>
+          </div>
+        `;
+      });
+      list.innerHTML = html;
+      totalEl.innerText = '$' + total.toFixed(2);
+    }
+
+    function removeFromCart(index) {
+      cart.splice(index, 1);
+      updateCartUI();
+    }
+
+    function filterCategory(cat, btn) {
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const cards = document.querySelectorAll('.product-card');
+      cards.forEach(card => {
+        if (cat === 'all' || card.dataset.category === cat) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    function filterProducts() {
+      const query = document.getElementById('searchInput').value.toLowerCase();
+      const cards = document.querySelectorAll('.product-card');
+      cards.forEach(card => {
+        const title = card.dataset.title.toLowerCase();
+        if (title.includes(query)) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+  </script>
 </body>
 </html>
